@@ -2,12 +2,13 @@ include <move.scad>
 
 // This is a simple tube (a cylinder with a cylindrical hollow)
 
-
-module tube(h, od, id)
-// h = height of the tube (will be around the z axis)
-// or = outer radius
-// ir = inner radius
+// tube(h, od, id)
+// h = height of the tube 
+// od = 2*or = outer radius
+// id = 2*ir = inner radius
 // $fn = obeys face numbers
+
+module tube(h, od, id, $fn=$fn)
 {
     difference()
     {
@@ -15,5 +16,8 @@ module tube(h, od, id)
         
         translate([0,0,-0.5])
         cylinder(h+1, id/2, id/2);
-    }
-}
+    };
+};
+
+
+tube(7, 4, 1.9, $fn=36);
